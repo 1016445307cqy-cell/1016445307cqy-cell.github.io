@@ -5,31 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>陈秋月 | AIGC创意总监 & 数字艺术家作品集</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,800&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        // 全平台无限制系统原生黑体组合，中文绝不掉字，英文保持现代感
-                        sans: [
-                            '-apple-system', 
-                            'BlinkMacSystemFont', 
-                            '"PingFang SC"', 
-                            '"Hiragino Sans GB"', 
-                            '"Microsoft YaHei"', 
-                            '"Helvetica Neue"', 
-                            'Arial', 
-                            'sans-serif'
-                        ],
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                     },
                     colors: {
-                        premium: {
-                            bg: '#FAFAFA',
-                            card: '#FFFFFF',
-                            text: '#111111',
-                            muted: '#666666',
-                            border: '#EAEAEA'
+                        cinema: {
+                            bg: '#050505',
+                            card: '#0D0D0E',
+                            text: '#F5F5F7',
+                            muted: '#8E8E93',
+                            border: '#1C1C1E'
                         }
                     }
                 }
@@ -52,265 +47,390 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* 针对中文字体优化的高级字距与呼吸感微调 */
-        .premium-letter-spacing { letter-spacing: -0.02em; }
-        .aux-text-spacing { letter-spacing: 0.15em; }
+        .premium-letter-spacing { letter-spacing: -0.03em; }
+
+        /* ==========================================================================
+           定制高级阻尼曲线动画 (对齐大厂视听美学曲线)
+           ========================================================================== */
+        .transition-cinema {
+            transition: all 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+        }
     </style>
 </head>
-<body class="bg-premium-bg text-premium-text antialiased selection:bg-neutral-200 selection:text-black">
+<body class="bg-cinema-bg text-cinema-text antialiased selection:bg-neutral-800 selection:text-white overflow-hidden h-screen">
 
-    <nav class="fixed top-0 left-0 w-full z-40 bg-premium-bg/80 backdrop-blur-md border-b border-premium-border px-8 py-4 flex justify-between items-center">
-        <span class="font-sans font-black text-sm tracking-widest premium-letter-spacing">CHIU / 创意终端</span>
-        <div class="flex gap-8 text-xs font-medium tracking-wider text-premium-muted">
-            <a href="#about" class="hover:text-premium-text transition-colors">关于我</a>
-            <a href="#ai-portfolio" class="hover:text-premium-text transition-colors">AI 影像区</a>
-            <a href="#video-portfolio" class="hover:text-premium-text transition-colors">视听编导</a>
-            <a href="#3d-portfolio" class="hover:text-premium-text transition-colors">3D 资产</a>
-            <a href="#contact" class="hover:text-premium-text transition-colors">保持连接</a>
-        </div>
-    </nav>
+    <div class="relative flex w-screen h-screen overflow-hidden">
 
-    <section class="w-full h-screen flex flex-col justify-center items-center px-6 relative select-none">
-        <div class="text-center max-w-5xl">
-            <p class="text-xs font-mono text-premium-muted uppercase tracking-[0.3em] mb-6 aux-text-spacing">AIGC 创意总监 / 数字艺术家</p>
-            <h1 class="text-5xl md:text-7xl font-sans font-black leading-tight tracking-tight premium-letter-spacing text-neutral-900">
-                用算法重构叙事逻辑<br>
-                <span class="text-neutral-400 font-light text-4xl md:text-6xl">在虚拟空间中降维现实</span>
-            </h1>
-        </div>
-        <div class="absolute bottom-12 flex flex-col items-center gap-2">
-            <span class="text-[10px] font-mono text-premium-muted uppercase tracking-widest">向下滚动探索空间</span>
-            <div class="w-[1px] h-12 bg-neutral-300 relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1/2 bg-black animate-[bounce_2s_infinite]"></div>
-            </div>
-        </div>
-    </section>
+        <div id="homepageMain" class="w-[95vw] h-full overflow-y-auto no-scrollbar relative z-10 transition-cinema border-r border-cinema-border/30">
+            
+            <header class="w-full py-6 px-8 flex justify-between items-center absolute top-0 left-0 z-30">
+                <span class="font-sans font-black text-sm tracking-widest text-white">CHIU / 创意终端</span>
+                <div class="w-10 h-10"></div>
+            </header>
 
-    <section id="about" class="w-full min-h-screen py-32 px-6 md:px-24 border-t border-premium-border flex flex-col justify-center">
-        <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-16">
-            <div class="md:col-span-5 flex flex-col justify-between">
-                <div>
-                    <h2 class="text-xs font-mono text-premium-muted uppercase tracking-widest mb-8">// 个人简介 / Profile</h2>
-                    <h3 class="text-3xl font-sans font-black leading-snug tracking-tight mb-6">
-                        陈秋月 <br><span class="text-neutral-400 text-lg font-normal">创意总监 / 3D 艺术家</span>
-                    </h3>
-                    <p class="text-sm leading-relaxed text-premium-muted font-light">
-                        拥有两年游戏行业 3D 场景美术的硬核沉淀，目前我正站在数字艺术与人工智能的交汇点，深入探索 AIGC 自动化创意管线与数字电影编导。我不将 AI 视作单纯的生产工具，而是将其作为拓展人类视觉张力上限的全新共创伙伴。
+            <section class="w-full h-screen flex flex-col justify-between items-center px-6 relative overflow-hidden select-none">
+                <div class="absolute inset-0 z-0">
+                    <video class="w-full h-full object-cover opacity-60 filter contrast-125 brightness-75" autoplay muted loop playsinline>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-nebula-with-stars-and-glowing-particles-43187-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-cinema-bg via-transparent to-cinema-bg/80"></div>
+                </div>
+
+                <div></div>
+
+                <div class="text-center max-w-5xl z-10 px-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 backdrop-blur-md rounded-full mb-6">
+                        <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                        <span class="text-[10px] font-mono tracking-widest text-neutral-300 uppercase">AIGC 工作流自动化实验已就绪</span>
+                    </div>
+                    
+                    <h1 class="font-serif italic text-5xl md:text-8xl leading-tight tracking-tight text-white mb-6">
+                        The Narrative Your Space <br class="hidden md:block"> Deserves.
+                    </h1>
+                    
+                    <p class="text-sm md:text-base font-sans text-cinema-muted max-w-2xl mx-auto font-light leading-relaxed">
+                        用算法重构叙事逻辑。结合 Blender 精密空间资产与生成式人工智能，<br class="hidden md:block">
+                        在数字电影与超现实 stylized 场景中降维现实。
                     </p>
                 </div>
-            </div>
+
+                <div class="w-full max-w-4xl border-t border-white/5 py-8 flex flex-col items-center gap-4 z-10">
+                    <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-white/30">核心研发技术栈生态</span>
+                    <div class="flex gap-12 font-serif italic text-sm text-white/40 tracking-wider">
+                        <span>Blender</span>
+                        <span>ComfyUI</span>
+                        <span>Unreal Engine</span>
+                        <span>Midjourney</span>
+                        <span>Cycles</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="w-full min-h-screen py-32 px-6 md:px-24 border-t border-cinema-border flex flex-col justify-center relative bg-cinema-bg">
+                <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-16">
+                    <div class="md:col-span-5 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xs font-mono text-cinema-muted uppercase tracking-widest mb-8">// 个人简介 / Profile</h2>
+                            <h3 class="text-3xl font-sans font-black leading-snug tracking-tight mb-6 text-white">
+                                陈秋月 <br><span class="text-cinema-muted text-base font-normal mt-1 block">创意总监 / 游戏3D模型师</span>
+                            </h3>
+                            <p class="text-sm leading-relaxed text-cinema-muted font-light">
+                                拥有两年游戏行业 3D 场景美术的硬核沉淀，目前我正站在数字艺术与人工智能的交汇点，深入探索 AIGC 自动化创意管线与数字电影编导。我不将 AI 视作单纯的生产工具，而是将其作为拓展人类视觉张力上限的全新共创伙伴。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-7 flex flex-col gap-12 border-l border-cinema-border md:pl-16">
+                        <div>
+                            <h4 class="text-xs font-mono text-cinema-muted uppercase tracking-widest mb-4">核心经历 / Milestones</h4>
+                            <ul class="space-y-4 font-sans text-sm text-neutral-300">
+                                <li class="flex justify-between items-start"><span class="font-bold">悠锐卡科技有限公司 & 游戏3D模型师</span><span class="font-mono text-xs text-cinema-muted">2025 - 至今</span></li>
+                                <li class="flex justify-between items-start"><span class="font-bold">华娱网络科技有限公司 • 游戏3D模型师（地编方向）</span><span class="font-mono text-xs text-cinema-muted">2024 - 2025</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-mono text-cinema-muted uppercase tracking-widest mb-4">教育背景 / Education</h4>
+                            <div class="flex justify-between items-start text-sm text-neutral-300">
+                                <span class="font-bold">影视编导专业</span>
+                                <span class="font-mono text-xs text-cinema-muted">中国美术学院 本科毕业</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-mono text-cinema-muted uppercase tracking-widest mb-4">自动化生产力生态库 / Tech Stack</h4>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono">
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-cinema-border rounded-full text-neutral-300">Midjourney</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-cinema-border rounded-full text-neutral-300">Stable Diffusion</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-cinema-border rounded-full text-neutral-300">ComfyUI</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-cinema-border rounded-full text-neutral-300">Unreal Engine 5</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-cinema-border rounded-full text-neutral-300">Blender</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-cinema-border rounded-full text-neutral-300">Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ai-portfolio" class="w-full py-32 border-t border-cinema-border overflow-hidden select-none relative bg-cinema-bg">
+                <div class="px-6 md:px-24 mb-12 flex justify-between items-end">
+                    <div>
+                        <h2 class="text-xs font-mono text-cinema-muted uppercase tracking-widest mb-3">// 01 / AI Portfolio</h2>
+                        <h3 class="text-2xl font-sans font-bold tracking-tight text-white">合成现实与潜意识层面的潜空间探索</h3>
+                    </div>
+                    <span class="text-xs text-cinema-muted font-medium">[ 鼠标横向拖拽，点击单张触发高清灯箱 ]</span>
+                </div>
+
+                <div id="drag-container" class="w-full overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing relative py-4">
+                    <div id="scroll-track" class="flex gap-6 w-max animate-scroll">
+                        <script>
+                            const track = document.getElementById('scroll-track');
+                            const imgIds = [
+                                'photo-1618005182384-a83a8bd57fbe', 'photo-1600585154340-be6161a56a0c', 
+                                'photo-1618005198143-e528346d9a99', 'photo-1634017839464-5c339ebe3cb4',
+                                'photo-1635070041078-e363dbe005cb', 'photo-1579783900882-c0d3dad7b119',
+                                'photo-1614850523459-c2f4c699c52e', 'photo-1618005124978-78418749978a',
+                                'photo-1620641788421-7a1c342ea42e', 'photo-1633167606207-d840b5070fc2'
+                            ];
+                            for(let r=0; r<2; r++) {
+                                imgIds.forEach((id, i) => {
+                                    const url = `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=80`;
+                                    track.innerHTML += `
+                                        <div class="w-72 h-96 flex-shrink-0 bg-neutral-900 overflow-hidden border border-cinema-border shadow-md group transition-transform duration-500 hover:scale-[1.02] relative rounded-sm">
+                                            <img src="${url}" alt="AI概念艺术 ${i+1}" class="w-full h-full object-cover pointer-events-none filter brightness-90 contrast-105 transition-all duration-700">
+                                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <p class="text-white font-mono text-xs">生成式数据帧_00${i+1}.DAT</p>
+                                            </div>
+                                        </div>
+                                    `;
+                                });
+                            }
+                        </script>
+                    </div>
+                </div>
+            </section>
+
+            <section id="video-portfolio" class="w-full py-32 px-6 md:px-24 border-t border-cinema-border relative bg-cinema-bg">
+                <div class="max-w-6xl mx-auto w-full mb-16">
+                    <h2 class="text-xs font-mono text-cinema-muted uppercase tracking-widest mb-3">// 02 / 导演与视觉叙事</h2>
+                    <h3 class="text-2xl font-sans font-bold tracking-tight text-white">影视编导、镜头流体学与多模态视听实验</h3>
+                </div>
+
+                <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="group relative aspect-[9/16] md:aspect-[3/4] bg-neutral-900 overflow-hidden border border-cinema-border rounded-sm">
+                        <video class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline>
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-laser-lights-background-42171-large.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-black/60 p-6 flex flex-col justify-between transition-opacity duration-300">
+                            <span class="text-xs font-mono text-white/40">[01] 电影短片项目</span>
+                            <div>
+                                <h4 class="text-white font-sans font-bold text-lg mb-2">《赛博涅槃：重构起源》</h4>
+                                <p class="text-xs text-cinema-muted font-light mb-4">全面应用 Stable Diffusion + Midjourney 自动化流体管线架构生成的独立科幻视觉短片。</p>
+                                <a href="https://vimeo.com" target="_blank" class="inline-flex text-[11px] font-mono tracking-wider text-black bg-white px-4 py-2 hover:bg-neutral-200 transition-colors uppercase font-medium">查看完整分镜 ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative aspect-[9/16] md:aspect-[3/4] bg-neutral-900 overflow-hidden border border-cinema-border rounded-sm">
+                        <video class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline>
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-and-data-41913-large.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-black/60 p-6 flex flex-col justify-between transition-opacity duration-300">
+                            <span class="text-xs font-mono text-white/40">[02] 动态实验追踪</span>
+                            <div>
+                                <h4 class="text-white font-sans font-bold text-lg mb-2">《回形潜意识阵列》</h4>
+                                <p class="text-xs text-cinema-muted font-light mb-4">基于提示词逻辑矩阵驱动的诗意长镜头影像。解构人类本能直觉与AI算力的算法共生边界。</p>
+                                <a href="https://vimeo.com" target="_blank" class="inline-flex text-[11px] font-mono tracking-wider text-black bg-white px-4 py-2 hover:bg-neutral-200 transition-colors uppercase font-medium">查看完整分镜 ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative aspect-[9/16] md:aspect-[3/4] bg-neutral-900 overflow-hidden border border-cinema-border rounded-sm">
+                        <video class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline>
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-rotating-spheres-of-blue-and-pink-lights-43224-large.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-black/60 p-6 flex flex-col justify-between transition-opacity duration-300">
+                            <span class="text-xs font-mono text-white/40">[03] 商业概念表现</span>
+                            <div>
+                                <h4 class="text-white font-sans font-bold text-lg mb-2">《液态拟态品牌概念流》</h4>
+                                <p class="text-xs text-cinema-muted font-light mb-4">为新奢潮流品牌定制的生成式动态美学。将神经辐射场（NeRF）资产同高精硬表面结构相融合。</p>
+                                <a href="https://vimeo.com" target="_blank" class="inline-flex text-[11px] font-mono tracking-wider text-black bg-white px-4 py-2 hover:bg-neutral-200 transition-colors uppercase font-medium">查看完整分镜 ↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="3d-portfolio" class="w-full py-32 px-6 md:px-24 border-t border-cinema-border relative bg-cinema-bg">
+                <div class="max-w-6xl mx-auto w-full mb-16">
+                    <h2 class="text-[10px] font-mono text-cinema-muted uppercase tracking-widest mb-3">// 03 / 3D 场景美术</h2>
+                    <h3 class="text-2xl font-sans font-bold tracking-tight text-white">硬表面工业拓扑、精细 PBR 材质与电影感灯光渲染表现</h3>
+                </div>
+
+                <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <a href="https://www.artstation.com" target="_blank" class="md:col-span-7 group border border-cinema-border overflow-hidden bg-cinema-card flex flex-col justify-between transition-all duration-300 hover:shadow-lg rounded-sm">
+                        <div class="aspect-video w-full overflow-hidden bg-neutral-900">
+                            <img src="https://s41.ax1x.com/2026/06/17/pm1oL8J.jpg" alt="遗落神庙全景渲染" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-mono text-cinema-muted block mb-1">BLENDER / PBR 材质流 / UE5 场景组装</span>
+                            <h4 class="font-sans font-bold text-base text-white group-hover:text-neutral-400 transition-colors">《遗落神庙》：大型硬表面程序化资产空间搭建 ↗</h4>
+                        </div>
+                    </a>
+
+                    <a href="https://www.artstation.com" target="_blank" class="md:col-span-5 group border border-cinema-border overflow-hidden bg-cinema-card flex flex-col justify-between transition-all duration-300 hover:shadow-lg rounded-sm">
+                        <div class="h-full overflow-hidden bg-neutral-900 aspect-video md:aspect-auto">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D空间渲染" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-mono text-cinema-muted block mb-1">高模雕刻 / 空间布光实验</span>
+                            <h4 class="font-sans font-bold text-base text-white group-hover:text-neutral-400 transition-colors">《永恒微光》：多重几何错落灯光氛围渲染 ↗</h4>
+                        </div>
+                    </a>
+
+                    <a href="https://www.artstation.com" target="_blank" class="md:col-span-4 group border border-cinema-border overflow-hidden bg-cinema-card flex flex-col justify-between transition-all duration-300 hover:shadow-lg rounded-sm">
+                        <div class="aspect-square w-full overflow-hidden bg-neutral-900">
+                            <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=800&q=80" alt="3D空间渲染" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-mono text-cinema-muted block mb-1">标准工业拓扑 / SUBSTANCE PAINTER</span>
+                            <h4 class="font-sans font-bold text-base text-white group-hover:text-neutral-400 transition-colors">硬表面精密机械核心底座重构 ↗</h4>
+                        </div>
+                    </a>
+
+                    <a href="https://www.artstation.com" target="_blank" class="md:col-span-4 group border border-cinema-border overflow-hidden bg-cinema-card flex flex-col justify-between transition-all duration-300 hover:shadow-lg rounded-sm">
+                        <div class="aspect-square w-full overflow-hidden bg-neutral-900">
+                            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="3D空间渲染" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-mono text-cinema-muted block mb-1">程序化节点着色器 / CYCLES CORE</span>
+                            <h4 class="font-sans font-bold text-base text-white group-hover:text-neutral-400 transition-colors">《晶体点阵》：程序化衍生材质学微观日志 ↗</h4>
+                        </div>
+                    </a>
+
+                    <a href="https://www.artstation.com" target="_blank" class="md:col-span-4 group border border-cinema-border overflow-hidden bg-cinema-card flex flex-col justify-between transition-all duration-300 hover:shadow-lg rounded-sm">
+                        <div class="aspect-square w-full overflow-hidden bg-neutral-900">
+                            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" alt="3D空间渲染" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] font-mono text-cinema-muted block mb-1">大银幕构图学 / 氛围深化</span>
+                            <h4 class="font-sans font-bold text-base text-white group-hover:text-neutral-400 transition-colors">反乌托邦巨型多维太空浮空舱原型 ↗</h4>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section id="contact" class="w-full py-32 px-6 md:px-24 border-t border-cinema-border bg-cinema-card relative">
+                <div class="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-[10px] font-mono text-cinema-muted uppercase tracking-widest mb-3">// 联系/ Connect</h2>
+                            <h3 class="text-3xl font-sans font-black tracking-tighter text-white premium-letter-spacing">希望可以共同工作</h3>
+                        </div>
+                        <div class="space-y-3 font-mono text-sm text-cinema-muted">
+                            <p>联系电话: <a href="tel:+8618951843225" class="text-white font-bold hover:underline">+86 18951843225</a></p>
+                            <p>电子邮箱: <a href="mailto:1016445307@qq.com" class="text-white font-bold hover:underline">1016445307@qq.com</a></p>
+                        </div>
+                        <p class="text-xs font-sans text-neutral-600 font-light pt-8">
+                            &copy; 2026 CHIU CREATIVE. 保留所有权利。 Designed with strict minimalism.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col items-start md:items-end group">
+                        <span class="text-[10px] font-mono text-cinema-muted uppercase tracking-widest mb-4">微信 / WeChat QR</span>
+                        <div class="w-40 h-40 p-3 bg-neutral-900 border border-cinema-border shadow-sm group-hover:shadow-md group-hover:scale-[1.03] transition-all duration-500 ease-out relative rounded-sm overflow-hidden">
+                            <img src="https://s41.ax1x.com/2026/06/17/pm1oL8J.jpg" alt="微信联系二维码" class="w-full h-full object-cover block">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="sideMenuPanel" class="fixed top-0 right-0 w-[5vw] h-full bg-[#ff3b30] z-20 transition-cinema flex flex-col items-start pt-32 px-0 shadow-[-20px_0_60px_rgba(0,0,0,0.3)]">
             
-            <div class="md:col-span-7 flex flex-col gap-12 border-l border-premium-border md:pl-16">
-                <div>
-                    <h4 class="text-xs font-mono text-premium-muted uppercase tracking-widest mb-4">核心经历 / Milestones</h4>
-                    <ul class="space-y-4 font-sans text-sm">
-                        <li class="flex justify-between items-start"><span class="font-bold">独立 AI 短片导演 & 流程管线架构师</span><span class="font-mono text-xs text-premium-muted">2025 - 至今</span></li>
-                        <li class="flex justify-between items-start"><span class="font-bold">游戏研发工作室 • 3D 场景美术师</span><span class="font-mono text-xs text-premium-muted">2024 - 2025</span></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xs font-mono text-premium-muted uppercase tracking-widest mb-4">教育背景 / Education</h4>
-                    <div class="flex justify-between items-start text-sm">
-                        <span class="font-bold">数字媒体艺术与视觉传达专业</span>
-                        <span class="font-mono text-xs text-premium-muted">高等学府本科毕业</span>
+            <div id="menuInnerContent" class="w-full max-w-2xl mx-auto px-12 md:px-24 hidden opacity-0 transition-opacity duration-300">
+                <div class="font-mono text-xs text-black/40 tracking-[0.4em] uppercase mb-10">// TERMINAL INDEX</div>
+                
+                <nav class="flex flex-col space-y-6">
+                    <div class="overflow-hidden">
+                        <a href="#about" class="menu-link inline-block font-serif italic text-4xl md:text-6xl text-black hover:text-white transform translate-y-[105%] transition-cinema">关于我</a>
                     </div>
-                </div>
-                <div>
-                    <h4 class="text-xs font-mono text-premium-muted uppercase tracking-widest mb-4">技术与软件生态 / Tech Stack</h4>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono">
-                        <span class="px-3 py-1.5 bg-white border border-premium-border rounded-full shadow-sm">Midjourney</span>
-                        <span class="px-3 py-1.5 bg-white border border-premium-border rounded-full shadow-sm">Stable Diffusion</span>
-                        <span class="px-3 py-1.5 bg-white border border-premium-border rounded-full shadow-sm">ComfyUI</span>
-                        <span class="px-3 py-1.5 bg-white border border-premium-border rounded-full shadow-sm">Unreal Engine 5</span>
-                        <span class="px-3 py-1.5 bg-white border border-premium-border rounded-full shadow-sm">Blender</span>
-                        <span class="px-3 py-1.5 bg-white border border-premium-border rounded-full shadow-sm">Photoshop</span>
+                    <div class="overflow-hidden">
+                        <a href="#ai-portfolio" class="menu-link inline-block font-serif italic text-4xl md:text-6xl text-black hover:text-white transform translate-y-[105%] transition-cinema">AI影像</a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ai-portfolio" class="w-full py-32 border-t border-premium-border bg-white overflow-hidden select-none">
-        <div class="px-6 md:px-24 mb-12 flex justify-between items-end">
-            <div>
-                <h2 class="text-xs font-mono text-premium-muted uppercase tracking-widest mb-3">// 01 / AI 作品集</h2>
-                <h3 class="text-2xl font-sans font-bold tracking-tight">合成现实与潜意识层面的潜空间探索</h3>
-            </div>
-            <span class="text-xs text-premium-muted font-medium">[ 鼠标滚动/拖拽擦除，点击单张放大 ]</span>
-        </div>
-
-        <div id="drag-container" class="w-full overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing relative py-4">
-            <div id="scroll-track" class="flex gap-6 w-max animate-scroll">
-                <script>
-                    const track = document.getElementById('scroll-track');
-                    const imgIds = [
-                        'photo-1618005182384-a83a8bd57fbe', 'photo-1600585154340-be6161a56a0c', 
-                        'photo-1618005198143-e528346d9a99', 'photo-1634017839464-5c339ebe3cb4',
-                        'photo-1635070041078-e363dbe005cb', 'photo-1579783900882-c0d3dad7b119',
-                        'photo-1614850523459-c2f4c699c52e', 'photo-1618005124978-78418749978a',
-                        'photo-1620641788421-7a1c342ea42e', 'photo-1633167606207-d840b5070fc2'
-                    ];
-                    for(let r=0; r<2; r++) {
-                        imgIds.forEach((id, i) => {
-                            const url = `https://images.unsplash.com/${id}?auto=format&fit=crop&w=800&q=80`;
-                            track.innerHTML += `
-                                <div class="w-72 h-96 flex-shrink-0 bg-neutral-100 overflow-hidden border border-premium-border shadow-sm group transition-transform duration-500 hover:scale-[1.02] relative rounded-sm">
-                                    <img src="${url}" alt="AI概念艺术 ${i+1}" class="w-full h-full object-cover pointer-events-none filter grayscale hover:grayscale-0 transition-all duration-700">
-                                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <p class="text-white font-mono text-xs">生成式数据帧_00${i+1}.DAT</p>
-                                    </div>
-                                </div>
-                            `;
-                        });
-                    }
-                </script>
-            </div>
-        </div>
-    </section>
-
-    <section id="video-portfolio" class="w-full py-32 px-6 md:px-24 border-t border-premium-border">
-        <div class="max-w-6xl mx-auto w-full mb-16">
-            <h2 class="text-xs font-mono text-premium-muted uppercase tracking-widest mb-3">// 02 / 导演与视觉叙事</h2>
-            <h3 class="text-2xl font-sans font-bold tracking-tight">独立编导、镜头流体学与多模态试听实验</h3>
-        </div>
-
-        <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="group relative aspect-[9/16] md:aspect-[3/4] bg-neutral-900 overflow-hidden border border-premium-border rounded-sm">
-                <video class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline>
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-laser-lights-background-42171-large.mp4" type="video/mp4">
-                </video>
-                <div class="absolute inset-0 bg-black/50 p-6 flex flex-col justify-between transition-opacity duration-300">
-                    <span class="text-xs font-mono text-white/60">[01] 电影短片项目</span>
-                    <div>
-                        <h4 class="text-white font-sans font-bold text-lg mb-2">《赛博涅槃：重构起源》</h4>
-                        <p class="text-xs text-white/70 font-light mb-4">全面应用 Stable Diffusion + Midjourney 自动化流体管线架构生成的独立科幻视觉短片。</p>
-                        <a href="https://vimeo.com" target="_blank" class="inline-flex text-[11px] font-mono tracking-wider text-black bg-white px-4 py-2 hover:bg-neutral-200 transition-colors uppercase font-medium">查看完整分镜 ↗</a>
+                    <div class="overflow-hidden">
+                        <a href="#video-portfolio" class="menu-link inline-block font-serif italic text-4xl md:text-6xl text-black hover:text-white transform translate-y-[105%] transition-cinema">编导影视作品</a>
                     </div>
-                </div>
-            </div>
-
-            <div class="group relative aspect-[9/16] md:aspect-[3/4] bg-neutral-900 overflow-hidden border border-premium-border rounded-sm">
-                <video class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline>
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-and-data-41913-large.mp4" type="video/mp4">
-                </video>
-                <div class="absolute inset-0 bg-black/50 p-6 flex flex-col justify-between transition-opacity duration-300">
-                    <span class="text-xs font-mono text-white/60">[02] 动态实验追踪</span>
-                    <div>
-                        <h4 class="text-white font-sans font-bold text-lg mb-2">《回形潜意识阵列》</h4>
-                        <p class="text-xs text-white/70 font-light mb-4">基于提示词逻辑矩阵驱动的诗意长镜头影像。解构人类本能直觉与AI算力的算法共生边界。</p>
-                        <a href="https://vimeo.com" target="_blank" class="inline-flex text-[11px] font-mono tracking-wider text-black bg-white px-4 py-2 hover:bg-neutral-200 transition-colors uppercase font-medium">查看完整分镜 ↗</a>
+                    <div class="overflow-hidden">
+                        <a href="#3d-portfolio" class="menu-link inline-block font-serif italic text-4xl md:text-6xl text-black hover:text-white transform translate-y-[105%] transition-cinema">3D场景资产作品</a>
                     </div>
-                </div>
-            </div>
-
-            <div class="group relative aspect-[9/16] md:aspect-[3/4] bg-neutral-900 overflow-hidden border border-premium-border rounded-sm">
-                <video class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" autoplay muted loop playsinline>
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-rotating-spheres-of-blue-and-pink-lights-43224-large.mp4" type="video/mp4">
-                </video>
-                <div class="absolute inset-0 bg-black/50 p-6 flex flex-col justify-between transition-opacity duration-300">
-                    <span class="text-xs font-mono text-white/60">[03] 商业概念表现</span>
-                    <div>
-                        <h4 class="text-white font-sans font-bold text-lg mb-2">《液态拟态品牌概念流》</h4>
-                        <p class="text-xs text-white/70 font-light mb-4">为新奢潮流品牌定制的生成式动态美学。将神经辐射场（NeRF）资产同高精硬表面结构相融合。</p>
-                        <a href="https://vimeo.com" target="_blank" class="inline-flex text-[11px] font-mono tracking-wider text-black bg-white px-4 py-2 hover:bg-neutral-200 transition-colors uppercase font-medium">查看完整分镜 ↗</a>
+                    <div class="overflow-hidden">
+                        <a href="#contact" class="menu-link inline-block font-serif italic text-4xl md:text-6xl text-black hover:text-white transform translate-y-[105%] transition-cinema">联系我</a>
                     </div>
+                </nav>
+                
+                <div class="mt-16 pt-8 border-t border-black/10 font-mono text-xs text-black/50 space-y-1">
+                    <p>STATUS: SYSTEM ACTIVE</p>
+                    <p>PORTFOLIO REVISION // 2026.06</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section id="3d-portfolio" class="w-full py-32 px-6 md:px-24 border-t border-premium-border bg-white">
-        <div class="max-w-6xl mx-auto w-full mb-16">
-            <h2 class="text-[10px] font-mono text-premium-muted uppercase tracking-widest mb-3">// 03 / 3D 场景美术</h2>
-            <h3 class="text-2xl font-sans font-bold tracking-tight">硬表面工业拓扑、精细 PBR 材质与电影感灯光渲染表现</h3>
-        </div>
-
-        <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8">
-            <a href="https://www.artstation.com" target="_blank" class="md:col-span-7 group border border-premium-border overflow-hidden bg-premium-bg flex flex-col justify-between transition-all duration-300 hover:shadow-lg rounded-sm">
-                <div class="aspect-video w-full overflow-hidden bg-neutral-200">
-                    <img src="https://s41.ax1x.com/2026/06/17/pm1oL8J.jpg" alt="遗落神庙全景渲染" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
-                </div>
-                <div class="p-6">
-                    <span class="text-[10px] font-mono text-premium-muted block mb-1">BLENDER / PBR 材质流 / UE5 场景组装</span>
-                    <h4 class="font-sans font-bold text-base group-hover:text-neutral-600 transition-colors">《遗落神庙》：大型硬表面程序化资产空间搭建 ↗</h4>
-                </div>
-            </a>
-
-            <a href="https://www.artstation.com" target="_blank" class="md:col-span-5 group border border-premium-border overflow-hidden bg-premium-bg flex flex-col justify-between transition-all duration-300 hover:shadow-lg rounded-sm">
-                <div class="h-full overflow-hidden bg-neutral-200 aspect-video md:aspect-auto">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D空间渲染" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
-                </div>
-                <div class="p-6">
-                    <span class="text-[10px] font-mono text-premium-muted block mb-1">高模雕刻 / 空间布光实验</span>
-                    <h4 class="font-sans font-bold text-base group-hover:text-neutral-600 transition-colors">《永恒微光》：多重几何错落灯光氛围渲染 ↗</h4>
-                </div>
-            </a>
-
-            <a href="https://www.artstation.com" target="_blank" class="md:col-span-4 group border border-premium-border overflow-hidden bg-premium-bg flex flex-col justify-between transition-all duration-300 hover:shadow-lg rounded-sm">
-                <div class="aspect-square w-full overflow-hidden bg-neutral-200">
-                    <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=800&q=80" alt="3D空间渲染" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
-                </div>
-                <div class="p-6">
-                    <span class="text-[10px] font-mono text-premium-muted block mb-1">标准工业拓扑 / SUBSTANCE PAINTER</span>
-                    <h4 class="font-sans font-bold text-base group-hover:text-neutral-600 transition-colors">硬表面精密机械核心底座重构 ↗</h4>
-                </div>
-            </a>
-
-            <a href="https://www.artstation.com" target="_blank" class="md:col-span-4 group border border-premium-border overflow-hidden bg-premium-bg flex flex-col justify-between transition-all duration-300 hover:shadow-lg rounded-sm">
-                <div class="aspect-square w-full overflow-hidden bg-neutral-200">
-                    <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="3D空间渲染" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
-                </div>
-                <div class="p-6">
-                    <span class="text-[10px] font-mono text-premium-muted block mb-1">程序化节点着色器 / CYCLES CORE</span>
-                    <h4 class="font-sans font-bold text-base group-hover:text-neutral-600 transition-colors">《晶体点阵》：程序化衍生材质学微观日志 ↗</h4>
-                </div>
-            </a>
-
-            <a href="https://www.artstation.com" target="_blank" class="md:col-span-4 group border border-premium-border overflow-hidden bg-premium-bg flex flex-col justify-between transition-all duration-300 hover:shadow-lg rounded-sm">
-                <div class="aspect-square w-full overflow-hidden bg-neutral-200">
-                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" alt="3D空间渲染" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
-                </div>
-                <div class="p-6">
-                    <span class="text-[10px] font-mono text-premium-muted block mb-1">大银幕构图学 / 氛围深化</span>
-                    <h4 class="font-sans font-bold text-base group-hover:text-neutral-600 transition-colors">反乌托邦巨型多维太空浮空舱原型 ↗</h4>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <section id="contact" class="w-full py-32 px-6 md:px-24 border-t border-premium-border bg-premium-bg">
-        <div class="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-            <div class="space-y-8">
-                <div>
-                    <h2 class="text-[10px] font-mono text-premium-muted uppercase tracking-widest mb-3">// 建立通讯 / Connect</h2>
-                    <h3 class="text-3xl font-sans font-black tracking-tighter premium-letter-spacing">共同勾勒超越现实的下一个视觉轴线。</h3>
-                </div>
-                <div class="space-y-3 font-mono text-sm text-premium-muted">
-                    <p>联系电话: <a href="tel:+8618951843225" class="text-premium-text font-bold hover:underline">+86 189-5184-3225</a></p>
-                    <p>电子邮箱: <a href="mailto:1016445307@qq.com" class="text-premium-text font-bold hover:underline">1016445307@qq.com</a></p>
-                </div>
-                <p class="text-xs font-sans text-neutral-400 font-light pt-8">
-                    &copy; 2026 CHIU CREATIVE. 保留所有权利。 基于高奢白模美学架构开发。
-                </p>
+        <button id="menuToggleBtn" class="fixed top-6 right-[calc(2.5vw-13px)] w-10 h-10 bg-transparent border-none cursor-pointer outline-none z-50 flex justify-center items-center transition-cinema" aria-label="切换菜单">
+            <div class="w-6 h-3.5 relative flex flex-col justify-between">
+                <span id="burgerLine1" class="block w-full h-[2.5px] bg-white rounded-full transition-transform duration-500 ease-out origin-center"></span>
+                <span id="burgerLine2" class="block w-full h-[2.5px] bg-white rounded-full transition-transform duration-500 ease-out origin-center"></span>
             </div>
+        </button>
 
-            <div class="flex flex-col items-start md:items-end group">
-                <span class="text-[10px] font-mono text-premium-muted uppercase tracking-widest mb-4">微信联络终端 / WeChat QR</span>
-                <div class="w-40 h-40 p-3 bg-white border border-premium-border shadow-sm group-hover:shadow-md group-hover:scale-[1.03] transition-all duration-500 ease-out relative rounded-sm overflow-hidden">
-                    <img src="https://s41.ax1x.com/2026/06/17/pm1oL8J.jpg" alt="微信联系二维码" class="w-full h-full object-cover block">
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <div id="lightbox" class="fixed inset-0 z-50 bg-white/70 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-500 flex justify-center items-center p-6">
-        <button id="lightbox-close" class="absolute top-8 right-8 font-mono text-xs text-premium-text uppercase tracking-widest p-2 hover:opacity-60 transition-opacity">关闭视图 [ESC]</button>
-        <div class="max-w-5xl max-h-[80vh] overflow-hidden border border-premium-border bg-white p-2 shadow-2xl rounded-sm">
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-500 flex justify-center items-center p-6">
+        <button id="lightbox-close" class="absolute top-8 right-8 font-mono text-xs text-white uppercase tracking-widest p-2 hover:opacity-60 transition-opacity">关闭视图 [ESC]</button>
+        <div class="max-w-5xl max-h-[80vh] overflow-hidden border border-cinema-border bg-neutral-900 p-2 shadow-2xl rounded-sm">
             <img id="lightbox-img" src="" alt="高清晰度焦点表现" class="max-w-full max-h-[75vh] object-contain block">
         </div>
     </div>
 
     <script>
+        // --- 核心联动转场逻辑 ---
+        const toggleBtn = document.getElementById('menuToggleBtn');
+        const sidePanel = document.getElementById('sideMenuPanel');
+        const homepageMain = document.getElementById('homepageMain');
+        const menuInnerContent = document.getElementById('menuInnerContent');
+        const line1 = document.getElementById('burgerLine1');
+        const line2 = document.getElementById('burgerLine2');
+        const menuLinks = document.querySelectorAll('.menu-link');
+
+        const toggleMenu = () => {
+            // 切换大侧边栏的 5vw (1/20) 与 75vw (3/4) 空间占比
+            const isExpanding = sidePanel.classList.toggle('w-[75vw]');
+            sidePanel.classList.toggle('w-[5vw]');
+            
+            if (isExpanding) {
+                // 主页面百叶窗式同步收缩
+                homepageMain.style.width = "25vw";
+                // 按钮定位自适应微调至舒适安全区
+                toggleBtn.style.right = "40px";
+                
+                // 原地线条交叉转叉号 (X)
+                line1.style.transform = "translateY(5.5px) rotate(45deg)";
+                line2.style.transform = "translateY(-5.5px) rotate(-45deg)";
+                
+                // 激活菜单，引发多米诺 Stagger 顺次向上冒出动效
+                menuInnerContent.classList.remove('hidden');
+                setTimeout(() => {
+                    menuInnerContent.classList.add('opacity-100');
+                    menuLinks.forEach((link, idx) => {
+                        // 错落时间差控制
+                        link.style.transitionDelay = `${0.2 + idx * 0.08}s`;
+                        link.style.transform = "translateY(0)";
+                    });
+                }, 50);
+            } else {
+                // 完美逆向回弹恢复
+                homepageMain.style.width = "95vw";
+                toggleBtn.style.right = "calc(2.5vw - 13px)";
+                
+                line1.style.transform = "none";
+                line2.style.transform = "none";
+                
+                menuLinks.forEach(link => {
+                    link.style.transitionDelay = "0s";
+                    link.style.transform = "translateY(105%)";
+                });
+                menuInnerContent.classList.remove('opacity-100');
+                setTimeout(() => { menuInnerContent.classList.add('hidden'); }, 400);
+            }
+        };
+
+        toggleBtn.addEventListener('click', toggleMenu);
+        
+        // 点击菜单内部链接后，自动平滑收回菜单
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => { if(sidePanel.classList.contains('w-[75vw]')) toggleMenu(); });
+        });
+
+
+        // --- 原生跑马灯无缝拖拽 + 灯箱核心（完整保留） ---
         const dragContainer = document.getElementById('drag-container');
         const scrollTrack = document.getElementById('scroll-track');
         const lightbox = document.getElementById('lightbox');
@@ -321,15 +441,9 @@
         let startX;
         let isDragging = false;
 
-        // 1. 悬停暂停控制器
-        dragContainer.addEventListener('mouseenter', () => {
-            scrollTrack.classList.add('paused-scroll');
-        });
-        dragContainer.addEventListener('mouseleave', () => {
-            if(!isDown) scrollTrack.classList.remove('paused-scroll');
-        });
+        dragContainer.addEventListener('mouseenter', () => { scrollTrack.classList.add('paused-scroll'); });
+        dragContainer.addEventListener('mouseleave', () => { if(!isDown) scrollTrack.classList.remove('paused-scroll'); });
 
-        // 2. 鼠标拖拽高阶平滑擦除算法
         dragContainer.addEventListener('mousedown', (e) => {
             isDown = true;
             isDragging = false;
@@ -345,9 +459,7 @@
             isDown = false;
             dragContainer.style.cursor = 'grab';
             setTimeout(() => {
-                if(!dragContainer.matches(':hover')) {
-                    scrollTrack.classList.remove('paused-scroll');
-                }
+                if(!dragContainer.matches(':hover')) scrollTrack.classList.remove('paused-scroll');
             }, 200);
         });
 
@@ -359,7 +471,6 @@
             scrollTrack.style.transform = `translateX(${x}px)`;
         });
 
-        // 3. 拦截大图灯箱
         dragContainer.addEventListener('click', (e) => {
             if (isDragging) return;
             const clickedImg = e.target.closest('img');
@@ -377,7 +488,14 @@
         };
         lightboxClose.addEventListener('click', closeBox);
         lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeBox(); });
-        window.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeBox(); });
+        
+        // 全局键盘监听 (ESC 支持关闭灯箱和收回侧边栏)
+        window.addEventListener('keydown', (e) => { 
+            if(e.key === 'Escape') {
+                closeBox(); 
+                if(sidePanel.classList.contains('w-[75vw]')) toggleMenu();
+            }
+        });
     </script>
 </body>
 </html>
